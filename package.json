@@ -1,0 +1,36 @@
+{
+  "name": "generator-open-source-docs",
+  "version": "0.1.0",
+  "description": "A Yeoman generator for creating open source documentation for a new project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vikash-Kothary/generator-open-source-docs.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "open",
+    "source",
+    "open-source",
+    "documentation",
+    "docs"
+  ],
+  "author": "Vikash Kothary <kothary.vikash@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vikash-Kothary/generator-open-source-docs/issues"
+  },
+  "homepage": "https://github.com/Vikash-Kothary/generator-open-source-docs#readme",
+  "dependencies": {
+    "yeoman-generator": "^3.2.0",
+    "yo": "^2.0.5"
+  },
+  "files": [
+    "app"
+  ]
+}
