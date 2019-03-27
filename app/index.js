@@ -1,4 +1,5 @@
 'use strict';
+
 const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
@@ -58,12 +59,78 @@ module.exports = class extends Generator {
 
   paths() {
     this.log('open-source-docs: paths')
+
+    // this.destinationRoot();
+
+    // this.destinationRoot('README.md')
+    // this.destinationRoot('LICENSE')
+    // this.destinationRoot('CHANGELOG.md')
+    // this.destinationRoot('CODE_OF_CONDUCT.module')
+    // this.destinationRoot('LICENSE')
+    // this.destinationRoot('LICENSE')
+    // this.destinationRoot('LICENSE')
   }
 
   writing() {
     this.log('open-source-docs: writing')
 
-    // this.log('cool feature', this.answers.cool);
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationRoot(),
+      {
+        lintCommand: '',
+        buildCommand: '',
+        testCommand: '',
+        runCommand: ''
+      }
+    )
+    this.fs.copyTpl(
+      this.templatePath('LICENSE'),
+      this.destinationRoot(),
+      {
+        currentYear: 2019,
+        fullName: 'Vikash Kothary'
+      }
+    )
+    this.fs.copyTpl(
+      this.templatePath('CHANGELOG.md'),
+      this.destinationRoot(),
+      {
+        githubUsername: 'vikash-kothary',
+        githubRepo: 'generator-open-source-docs',
+        currentVersion: 'v0.1.0',
+        currentDate: '2019-03-04'
+      }
+    )
+    this.fs.copy(
+      this.templatePath('CODE_OF_CONDUCT.md'),
+      this.destinationRoot()
+    )
+    this.fs.copyTpl(
+      this.templatePath('CONTRIBUTING.md'),
+      this.destinationRoot(),
+      {
+        projectName: 'Open Source Documentation Generator'
+      }
+    )
+    this.fs.copyTpl(
+      this.templatePath('PULL_REQUEST_TEMPLATE.md'),
+      this.destinationRoot(),
+      {
+        lintCommand: 'yarn format',
+        testCommand: 'yarn test',
+
+      }
+    )
+    this.fs.copyTpl(
+      this.templatePath('ISSUE_TEMPLATE.md'),
+      this.destinationRoot(),
+      {
+        lintCommand: 'yarn format',
+        testCommand: 'yarn test',
+
+      }
+    )
   }
 
   end(){
